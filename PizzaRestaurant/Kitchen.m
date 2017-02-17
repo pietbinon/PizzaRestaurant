@@ -38,7 +38,7 @@
         } else {
             return nil;
         }
-    } /*else {
+    } /*else {//Not necessary
         pizza = [[Pizza alloc] initWithSize: size andToppings: toppings];
     }*/
     return pizza;
