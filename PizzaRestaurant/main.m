@@ -80,9 +80,6 @@ int main(int argc, const char * argv[])
             NSString *inputString = [[NSString alloc] initWithUTF8String: inputChar];
             NSString *string = [inputString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
             
-//            NSString *happy = @"happy";
-//            NSString *angry = @"angry";
-            
             if ([string containsString: @"happy"]) {
                 restaurantKitchen.delegate = happy;
             } else if ([string containsString: @"angry"]){
