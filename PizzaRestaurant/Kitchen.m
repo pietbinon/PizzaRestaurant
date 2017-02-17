@@ -12,8 +12,55 @@
 
 - (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings {
     
-    Pizza *pizza  =[[Pizza alloc] initWithSize: size andToppings: toppings];
+    
+    //If (YES)
+    if (self.delegate != nil) {
+        
+        //If (YES)
+        if ([self.delegate kitchenShouldUpgradeOrder: self]) {
+            size = large;
+        }
+    }
+
+    
+    
+    Pizza *pizza;
+    
+    
+    
+    //Same as if (YES)
+    if (self.delegate != nil) {
+        
+        //Same as if (YES)
+        if ([self.delegate kitchen: self shouldMakePizzaOfSize: size andToppings: toppings]) {
+            pizza  =[[Pizza alloc] initWithSize: size andToppings: toppings];
+            return pizza;
+        } else {
+            return nil;
+        }
+    } /*else {
+        pizza = [[Pizza alloc] initWithSize: size andToppings: toppings];
+    }*/
     return pizza;
+    
+    
+    
+    
+    
+    
+    
+//    //respondsToSelector: Required. Returns a Boolean value that indicates whether the receiver implements or inherits a
+//    //method that can respond to a specified message:
+//    if (self.delegate != nil) {
+//        if ([self.delegate respondsToSelector: @selector(kitchenDidMakePizza:)]) {
+//            [self.delegate kitchenDidMakePizza: pizza];
+//        } else {
+//            return nil;
+//        }
+//    }
+
+    
+    
 }
 
 @end

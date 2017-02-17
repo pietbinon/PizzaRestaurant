@@ -10,6 +10,9 @@
 
 #import "Kitchen.h"
 #import "Pizza.h"
+#import "HappyManager.h"
+#import "AngryManager.h"
+
 
 //======================SMALL C METHOD TO CONVERT NSSTRING INTO NSINTEGER (ENUM)=========================
 PizzaSize getSizeFromString (NSString *s) {
@@ -61,10 +64,33 @@ int main(int argc, const char * argv[])
         
         Kitchen *restaurantKitchen = [Kitchen new];
         Pizza *pizza = [Pizza new];
+        HappyManager *happy = [HappyManager new];
+        AngryManager *angry = [[AngryManager alloc] init];
         
         while (TRUE) {
             // Loop forever
             
+            
+            
+            //MANAGER CHOICE
+            NSLog (@"Would you like to speak to a happy or angry manager?");
+            
+            char inputChar[255];
+            fgets(inputChar, 255, stdin);
+            NSString *inputString = [[NSString alloc] initWithUTF8String: inputChar];
+            NSString *string = [inputString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+//            NSString *happy = @"happy";
+//            NSString *angry = @"angry";
+            
+            if ([string containsString: @"happy"]) {
+                restaurantKitchen.delegate = happy;
+            } else if ([string containsString: @"angry"]){
+                restaurantKitchen.delegate = angry;
+            } else {
+                NSLog(@"There is no manager so the kitchen staff came to greet you");
+            }
+
             
             
             //PIZZA CHOICE
@@ -73,8 +99,8 @@ int main(int argc, const char * argv[])
             //Get the user input
             char str[100];
             fgets (str, 100, stdin);
-            NSString *inputString = [[NSString alloc] initWithUTF8String:str];
-            inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSString *inputPizzaString = [[NSString alloc] initWithUTF8String:str];
+            inputString = [inputPizzaString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             NSLog(@"Input was %@", inputString);
             
             // Take the first word of the command as the size, and the rest as the toppings
