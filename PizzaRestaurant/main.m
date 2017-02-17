@@ -81,8 +81,8 @@ int main(int argc, const char * argv[])
             NSString *string = [inputString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
             
             if ([string containsString: @"happy"]) {
-                restaurantKitchen.delegate = happy;
-            } else if ([string containsString: @"angry"]){
+                restaurantKitchen.delegate = happy;         //Kitchen is the DELEGATOR and is the one with the
+            } else if ([string containsString: @"angry"]){  //property id delegate
                 restaurantKitchen.delegate = angry;
             } else {
                 NSLog(@"There is no manager so the kitchen staff came to greet you");

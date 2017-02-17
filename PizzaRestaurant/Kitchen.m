@@ -21,10 +21,23 @@
             size = large;
         }
     }
-
+    
+    
     
     
     Pizza *pizza;
+
+    
+    //respondsToSelector: Required. Returns a Boolean value that indicates whether the receiver implements or inherits a
+    //method that can respond to a specified message:
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector: @selector(kitchenDidMakePizza:)]) {
+            [self.delegate kitchenDidMakePizza: pizza];
+        } else {
+            return nil;
+        }
+    }
+
     
     
     
@@ -42,25 +55,7 @@
         pizza = [[Pizza alloc] initWithSize: size andToppings: toppings];
     }*/
     return pizza;
-    
-    
-    
-    
-    
-    
-    
-//    //respondsToSelector: Required. Returns a Boolean value that indicates whether the receiver implements or inherits a
-//    //method that can respond to a specified message:
-//    if (self.delegate != nil) {
-//        if ([self.delegate respondsToSelector: @selector(kitchenDidMakePizza:)]) {
-//            [self.delegate kitchenDidMakePizza: pizza];
-//        } else {
-//            return nil;
-//        }
-//    }
 
-    
-    
 }
 
 @end
