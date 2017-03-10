@@ -10,7 +10,8 @@
 #import "Pizza.h"
 
 
-//Needed in delegate because Kitchen will be the delegator???
+
+//Needs this in order to avoid an error message on the lines that declares the first method in the protocol
 @class Kitchen;
 
 
@@ -19,7 +20,6 @@
 @protocol KitchenDelegate <NSObject>
 
 @required
-
 //"(Kitchen *) kitchen" in such a method indicates Kitchen is the DELEGATOR!
 - (BOOL) kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings;
 
@@ -27,7 +27,6 @@
 
 
 @optional
-
 - (void) kitchenDidMakePizza:(Pizza *)pizza;
 
 @end

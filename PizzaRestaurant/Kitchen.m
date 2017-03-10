@@ -13,7 +13,9 @@
 - (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings {
     
     
-    //If (YES)
+//    //Same as line that follows???
+//    if (!(self.delegate == nil))
+    // The following line means If (YES)
     if (self.delegate != nil) {
         
         //If (YES)

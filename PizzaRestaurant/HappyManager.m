@@ -18,15 +18,9 @@
 }
 
 
-
 - (BOOL) kitchenShouldUpgradeOrder:(Kitchen *)kitchen {
     return YES;
 }
-
-
-
-
-
 
 
 - (void) kitchenDidMakePizza:(Pizza *)pizza {

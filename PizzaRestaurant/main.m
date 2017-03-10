@@ -14,6 +14,7 @@
 #import "AngryManager.h"
 
 
+//===========C METHODS BEGIN================C METHODS BEGIN===============C METHODS BEGIN==================
 //======================SMALL C METHOD TO CONVERT NSSTRING INTO NSINTEGER (ENUM)=========================
 PizzaSize getSizeFromString (NSString *s) {
     if ([s isEqualToString: @"small"]) {
@@ -27,7 +28,7 @@ PizzaSize getSizeFromString (NSString *s) {
 //=======================================================================================================
 
 
-//=======================ANOTHER C METHOD TO CONVERT NSINTEGER (IN ENUM) BACK TO NSSTRING================
+//=======================ANOTHER C METHOD TO CONVERT NSINTEGER (IN NS_ENUM) BACK TO NSSTRING================
 NSString* sizeToString (PizzaSize p) {
     if (p == small) {
         return @"small";
@@ -55,6 +56,8 @@ NSString* sizeToString (PizzaSize p) {
 //    return result;
 //}
 //=======================================================================================================
+//==============C METHODS END================C METHODS END================C METHODS END====================
+
 
 
 int main(int argc, const char * argv[])
@@ -105,8 +108,37 @@ int main(int argc, const char * argv[])
             //divided by a given separator:
             //- (NSArray<NSString *> *)componentsSeparatedByString:(NSString *)separator;
             NSMutableArray *commandWords = [[inputString componentsSeparatedByString:@" "] mutableCopy];
+            
+//            //The two following lines are doing the same as line 110
+//            NSArray *commandWords = [input componentsSeparatedByString:@" "];
+//            NSMutableArray *commandWordsMutable = [commandWords mutableCopy];
+
             NSString *sizeString = commandWords[0];
+            
+//            NSString *sizeOrdered = [commandWordsMutable objectAtIndex: 0];
+//            //            //Does the same as previous line...
+//            //            NSString *sizeOrdered = commandWordsMutable[0];
+
+        
             [commandWords removeObjectAtIndex: 0];
+
+            
+            
+//=================================================================================================================
+//            PizzaSize size = convertFromStringToInteger(sizeOrdered);
+//            
+//            //            //Cannot use this line because even though PizzaSize is made of NSInteger, the type is PizzaSize
+//            //            NSInteger sizeOrderedInt = [sizeOrdered integerValue];
+//            
+//            [commandWordsMutable removeObjectAtIndex: 0];
+//            //            //The following line does the same as the previous line
+//            //            [commandWordsMutable subarrayWithRange: NSMakeRange(1, commandWordsMutable.count - 1)];
+//            NSArray *commandWordsWithoutSize = [commandWordsMutable copy];
+//================================================================================================================
+            
+            
+            
+            
             
             //Convert it to PizzaSize enum - See the above C method
             PizzaSize size = getSizeFromString(sizeString);

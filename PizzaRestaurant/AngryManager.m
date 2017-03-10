@@ -14,6 +14,10 @@
 
 
 - (BOOL) kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings {
+    
+//    if ([toppings containsObject: @"anchovies"])
+    
+    
     BOOL makePizzaFlag = YES;
     
     for (NSString *topping in toppings) {
@@ -25,13 +29,9 @@
 }
 
 
-
 - (BOOL) kitchenShouldUpgradeOrder:(Kitchen *)kitchen {
     return NO;
 }
-
-
-
 
 
 - (void) kitchenDidMakePizza:(Pizza *)pizza {}
